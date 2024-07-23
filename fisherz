@@ -1,0 +1,15 @@
+**Fisher Z-transformation of correlation coefficients**
+# Example correlation coefficients
+r <- c(0.1, 0.3, 0.5, 0.7, 0.9)
+
+# Convert to Fisher's Z scores
+z_scores <- atanh(r)
+
+# Print results
+print(data.frame(r = r, z = z_scores))
+
+# Convert back to correlation coefficients
+r_back <- tanh(z_scores)
+
+# Verify
+print(all.equal(r, r_back))
